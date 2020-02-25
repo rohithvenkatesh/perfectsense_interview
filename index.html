@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>hello, world!</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/-debug.css">
+		<style>
+
+article {
+	display: grid;
+	grid-template-columns: 1fr 0.5in [start] 1in 5.5in 1in [end] 0.5in 1fr;
+	
+	 padding: 0.5in 0 0.5in 0;
+}
+
+
+article p { grid-column: start / end; }
+
+@media (max-width: 8.5in) {
+	article { grid-template-columns: 1fr 5% [start] 15% 60% 15% [end] 5% 1fr; }
+}
+
+figure {
+	grid-column: 1/8;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+figure img {
+	width: 100%;
+	border-radius: 25px;
+}
+
+p {
+	margin-top: 2rem;
+}
+
+
+
+
+</style>
+	</head>
+    <body>
+		<article>
+			<figure>
+				<img src="https://images.unsplash.com/photo-1480506132288-68f7705954bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1693&q=80">
+			</figure>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet vulputate mauris. Integer et tortor at ligula consectetur pretium quis nec augue. Proin in porta mi, nec lacinia nunc. Integer sodales dictum metus, non condimentum tortor rutrum sed. Nam dictum finibus nisl, a lacinia mauris lacinia ut. Aliquam sed urna odio. Ut mollis mollis dapibus. Maecenas sit amet luctus lectus, nec dictum massa. Donec urna ante, accumsan sagittis porttitor eget, laoreet at ipsum. Phasellus tristique non risus ullamcorper egestas. Sed vitae bibendum magna. Aenean vel mauris mauris.
+
+				Aliquam volutpat cursus augue, ut dapibus metus egestas ut. Curabitur nec elit felis. Praesent suscipit, nulla id ultrices molestie, dolor est laoreet odio, vitae finibus quam lacus in justo. Curabitur pharetra ullamcorper purus nec semper. In condimentum eget enim et auctor. In hac habitasse platea dictumst. Fusce eu leo arcu. Aliquam tincidunt lobortis magna eget maximus.
+				
+				Pellentesque sagittis molestie ante, at vehicula mi pellentesque ut. Maecenas et metus a justo tincidunt condimentum. Integer vel ipsum semper, euismod elit vel, dictum turpis. Donec nec sem nec velit gravida tempus eu at arcu. Pellentesque a vestibulum nisl. Vestibulum commodo leo molestie tortor tempus, eget aliquet dolor congue. Donec in sapien nunc. Donec dui odio, dignissim vitae ipsum eget, cursus congue tellus. Aenean sagittis erat ac facilisis condimentum. Vivamus sed ante vitae dui bibendum euismod a sit amet dui. Ut nec tristique odio. Ut rhoncus orci nec dignissim aliquet.
+				
+				Morbi rhoncus purus non ligula pharetra, venenatis ullamcorper lacus interdum. Etiam mi urna, tempus ut lobortis a, porta ut massa. Integer vehicula, elit ut faucibus dictum, ante elit pellentesque orci, sit amet semper ipsum risus vitae odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in vestibulum erat. Nunc eget condimentum purus. Sed suscipit scelerisque elit a fermentum. Proin congue massa et ipsum efficitur luctus. Sed ac elit vitae ligula interdum consectetur imperdiet non purus. Sed congue porttitor justo eu tincidunt. Morbi augue libero, egestas et lacus non, ornare interdum ligula. Morbi ornare ullamcorper nibh ac congue.
+				
+				Donec porttitor at justo et ultricies. Integer eu semper risus. Aenean ac nisi diam. Vivamus ac nunc vitae diam tristique suscipit quis quis nisi. Suspendisse orci felis, rutrum non gravida id, efficitur sed sem. Donec vestibulum aliquet sollicitudin. Curabitur placerat lacus sit amet massa hendrerit, et blandit dolor vestibulum. Ut nec lacus tellus. Nulla venenatis dolor ut eros sagittis euismod. Aliquam semper sollicitudin eros, id tempor nibh molestie vitae. Vestibulum vitae imperdiet ex, quis laoreet diam.</p>
+		</article>
+    </body>
+</html>
