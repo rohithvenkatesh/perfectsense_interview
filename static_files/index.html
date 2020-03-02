@@ -6,7 +6,29 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles/reset.css">
-        <link rel="stylesheet" href="styles/-debug.css">
+		<!-- <link rel="stylesheet" href="styles/debug.css"> -->
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+		<script>
+			$(document).ready(() => {
+
+				$('#testButton').click(() => {
+					$.ajax({
+						url: '/database',
+						type: 'GET',
+						dataType: 'json',
+						success: (data) => {
+							$('#testContent').html('<hr>')
+						}
+					})
+				})
+
+			})
+
+
+		</script>
+
 		<style>
 			html {
 				background: #090912fa;
@@ -70,6 +92,8 @@
     <body>
 		<article>
 			<h2>TECHNOLOGY</h2>
+			<button id="testButton">Database</button>
+			<div id="testContent"></div>
 			<h1>Viverra Aliquet Eget Sit Amet Tellus Cras</h1>
 			<h3>By: Rohith Venkatesh&emsp;|&emsp;On: 11 March 2020&emsp;|&emsp;10 Minute Read</h3>
 			<figure>
