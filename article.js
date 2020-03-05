@@ -2,45 +2,40 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.set('view engine', 'pug')
-app.set('views', process.cwd() + '/views'); 
+const sqlite3 = require('sqlite3')
+const db = new sqlite3.Database('comments.db')
 
-fakeDatabase = {
-	"a" : {name: "person1", age: "10"},
-	"b" : {name: "person2", age: "15"},
-	"c" : {name: "person3", age: "20"},
-}
-
-app.get('/database', (req, res) => {
-	const users = Object.keys(fakeDatabase)
-	const values = Object.values(fakeDatabase)
-	res.send(users)
-})
-
+// home
 app.get('/', (req, res) => {
-	const users = Object.keys(fakeDatabase)
-	const values = Object.values(fakeDatabase)
 	res.render('index.pug')
 })
 
-app.post('/', function (req, res) {
-	// res.render('index.pug')
+// get comments from database
+app.get('/comments', (req, res) => {
+	db.all(
+		'SELECT * FROM comments', 
+		(err, rows) => res.send(rows))
+})
+
+// add comments to database
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true})); 
+app.post('/comments', function (req, res) {
+	db.run(
+		'INSERT INTO comments VALUES ($name, $comment)', 
+		{$name: req.body.name, $comment: req.body.comment},
+		(err)=>{
+			if (err) res.send({message: "error in new comment"})
+			else res.send({message: "successful comment insertion"})
+		}
+	)
 });
 
-// app.get('/index.css', (req, res) => {
-// 	const users = Object.keys(fakeDatabase)
-// 	const values = Object.values(fakeDatabase)
-// 	res.sendFile('index.css', {root: __dirname})
-// 	// res.render('index.pug')
-// })
-
-// const htmlDirectory = express.static(__dirname + '/views')
-// app.use(htmlDirectory);
-
+// css + scripts
 const cssDirectory = express.static(__dirname + '/css')
 const scriptsDirectory = express.static(__dirname + '/scripts')
 app.use(cssDirectory);
 app.use(scriptsDirectory);
 
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+// port
+app.listen(port)
