@@ -87,7 +87,7 @@ p {
 	background-color: rgba(255, 255, 255, 0.895);
 }
 
-#submitButton {
+#submitButton{
 	font: 18px "Signika Negative", sans-serif;
 	cursor: pointer;
 	margin-top: 1rem;
@@ -108,9 +108,9 @@ p {
 	margin-right: 3.5%;
 }
 
-#comments #comment:nth-of-type(even){
+/* #comments #comment:nth-of-type(even){
 	text-align: end;
-}
+} */
 
 #comment {
 	color: rgba(255, 255, 255, 0.795);
