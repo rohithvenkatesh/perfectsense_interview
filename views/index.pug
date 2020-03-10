@@ -14,13 +14,6 @@ html
   body
     article
       h2 TECHNOLOGY
-      #commentSection
-        input#nameBox(type="text")
-        br
-        input#commentBox(type="text")
-        br
-        button#submitButton Submit
-      #testContent
       h1 Viverra Aliquet Eget Sit Amet Tellus Cras
       h3 By: Rohith Venkatesh | On: 11 March 2020 | 10 Minute Read
       figure
@@ -30,3 +23,12 @@ html
       p Pellentesque sagittis molestie ante, at vehicula mi pellentesque ut. Maecenas et metus a justo tincidunt condimentum. Integer vel ipsum semper, euismod elit vel, dictum turpis. Donec nec sem nec velit gravida tempus eu at arcu. Pellentesque a vestibulum nisl. Vestibulum commodo leo molestie tortor tempus, eget aliquet dolor congue. Donec in sapien nunc. Donec dui odio, dignissim vitae ipsum eget, cursus congue tellus. Aenean sagittis erat ac facilisis condimentum. Vivamus sed ante vitae dui bibendum euismod a sit amet dui. Ut nec tristique odio. Ut rhoncus orci nec dignissim aliquet.
       p Morbi rhoncus purus non ligula pharetra, venenatis ullamcorper lacus interdum. Etiam mi urna, tempus ut lobortis a, porta ut massa. Integer vehicula, elit ut faucibus dictum, ante elit pellentesque orci, sit amet semper ipsum risus vitae odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in vestibulum erat. Nunc eget condimentum purus. Sed suscipit scelerisque elit a fermentum. Proin congue massa et ipsum efficitur luctus. Sed ac elit vitae ligula interdum consectetur imperdiet non purus. Sed congue porttitor justo eu tincidunt. Morbi augue libero, egestas et lacus non, ornare interdum ligula. Morbi ornare ullamcorper nibh ac congue. Donec porttitor at justo et ultricies. Integer eu semper risus. Aenean ac nisi diam. Vivamus ac nunc vitae diam tristique suscipit quis quis nisi. 
       p Suspendisse orci felis, rutrum non gravida id, efficitur sed sem. Donec vestibulum aliquet sollicitudin. Curabitur placerat lacus sit amet massa hendrerit, et blandit dolor vestibulum. Ut nec lacus tellus. Nulla venenatis dolor ut eros sagittis euismod. Aliquam semper sollicitudin eros, id tempor nibh molestie vitae. Vestibulum vitae imperdiet ex, quis laoreet diam.
+      #commentSection
+        h1.title Join The Discussion—
+        input#nameBox(type="text", placeholder="Name", name="name")
+        br
+        textarea#commentBox(rows="10", placeholder="Comment", name="comment")
+        br
+        button#submitButton Submit
+      h1.title#commentCount
+      #comments
