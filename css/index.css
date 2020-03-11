@@ -103,14 +103,13 @@ p {
 	grid-column: 2/7;
 	display:block;
 	justify-content: center;
-	padding-bottom: 2em;
 	margin-left: 3.5%;
 	margin-right: 3.5%;
 }
 
-/* #comments #comment:nth-of-type(even){
+#comments #comment:nth-of-type(even){
 	text-align: end;
-} */
+}
 
 #comment {
 	color: rgba(255, 255, 255, 0.795);
@@ -122,16 +121,21 @@ p {
 #comment #message{
 	font-weight: 100;
 }
-
-.liked {
-	background-color: lightgreen;
-  }
   
-  .unliked {
-	background-color: lightblue;
-  }
-  
+footer {
+	grid-column: 2/7;
+	position: relative;
+}
 
+p#copyright {
+	font: 10px/1.5 "Signika Negative", sans-serif;
+	font-weight: 100;
+	position: absolute;
+	width: 90%;
+	color: rgba(255, 255, 255, 0.5);	
+	text-align: center;
+	padding-bottom: 1rem;
+}
 
 @media (max-width: 8.5in) {
 	article { grid-template-columns: 1fr 15% 5% 60% 5% 15% 1fr}
