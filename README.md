@@ -2,8 +2,8 @@
 > A single page article with dark mode and the ability to add comments.
 
 ## Table of Contents
-- [Technlogies](#technologies-used)
 - [Background](#background)
+- [Technlogies](#technologies-used)
 - [Install and Use](#installation-and-usage)
 - [Future Plans](#future-plans)
 
