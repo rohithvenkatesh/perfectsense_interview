@@ -123,6 +123,16 @@ p {
 	font-weight: 100;
 }
 
+.liked {
+	background-color: lightgreen;
+  }
+  
+  .unliked {
+	background-color: lightblue;
+  }
+  
+
+
 @media (max-width: 8.5in) {
 	article { grid-template-columns: 1fr 15% 5% 60% 5% 15% 1fr}
 	figure img {border-radius: 0px; }

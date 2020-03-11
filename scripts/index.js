@@ -1,17 +1,16 @@
 $(document).ready(() => {
-	var allComments = {}
-
+	getComments()
 	// helper function to get comments from database
-	$.fn.getComments = () => {
+	function getComments() {
 		$.ajax({ 
 			url: '/comments', type: 'GET', dataType: 'json',
 			success: (data) => {
-				let comments = ""
+				comments = ''
 				for (const c of data){
 					comments = 
-						`<br><div id=comment>` +
+						`<br><div id=comment>`+
 							`<div id=name>`+
-								c.name +  
+								c.name + ' — ' + c.datetime + 
 							`</div>` + 
 							`<div id=message>`+
 								c.comment + 
@@ -24,20 +23,24 @@ $(document).ready(() => {
 		}})	
 	}
 
-	$(this).getComments()
-
 	// on comment submit
 	$('#submitButton').click(()=>{
-		$.ajax({ url: '/comments', type: 'POST', 
-		data: {
-			name: $('#nameBox').val(),
-			comment: $('#commentBox').val()
-		},
-		success: (data) => {
-			$(this).getComments()
-			$('#nameBox').val('')
-			$('#commentBox').val('')
+		if ($('#nameBox').val() && $('#commentBox').val()){
+			var d = new Date();
+			var o = {year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit'};
+			d = d.toLocaleDateString('en-US', o);
+			$.ajax({ url: '/comments', type: 'POST', 
+			data: {
+				name: $('#nameBox').val(),
+				comment: $('#commentBox').val(),
+				datetime: d
+			},
+			success: (data) => {
+				getComments()
+				$('#nameBox').val('')
+				$('#commentBox').val('')
+			}
+			})	
 		}
-		})		
 	})
 })
