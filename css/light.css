@@ -1,0 +1,141 @@
+html {
+	background: #fefefe;
+}
+
+body {
+	font: "Signika Negative", sans-serif;
+	color: rgba(50, 50, 50, 0.995);
+}
+
+article {
+	display: grid;
+	grid-template-columns: 1fr 0.5in 1in 5.5in 1in 0.5in 1fr;
+	padding: 0.5in 0 0.5in 0;
+}
+
+figure {
+	grid-column: 2/7;
+	margin-right: 0px; 
+	margin-left: 0px
+}
+
+figure img {
+	width: 100%;
+	border-radius: 25px;
+}
+
+h1, h2, h3, p, #title{
+	display:flex;
+	justify-content: center;
+	text-align: center;
+	grid-column: 2/7;
+}
+
+h1 {
+	font-size: 34px;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+}
+
+h2{
+	font-size: 13px;
+	font-weight: 400;
+	letter-spacing: 1.5px;
+	margin-bottom: 0.9rem;
+}
+
+h3 {
+	font-size: 13px;
+	font-weight: 300;
+	letter-spacing: 0.1px;
+	margin-bottom: 2rem;
+}
+
+p {
+	font-size: 18px;
+	line-height: 1.3rem;
+	font-weight: 200;
+	text-align: start;
+	margin-top: 2rem;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.title {
+	margin-left: 0.7rem;
+	margin-top: 1.5rem;
+	justify-content: start;
+	text-align: start;
+	font-size: 26px;
+	margin-bottom: 0;
+	font-style: italic;
+	font-weight: 600;
+}
+
+#commentSection {
+	grid-column: 2/7;
+	text-align: center;
+}
+
+#commentBox, #nameBox{
+	font: 18px/1.2 "Signika Negative", sans-serif;
+	width: 90%;
+	border-radius: 3px;
+	border: 4px solid rgba(0,0,0,0.1);
+	padding: 10px;
+	margin-top: 1rem;
+}
+
+#submitButton{
+	font: 18px "Signika Negative", sans-serif;
+	font-weight: 200;
+	cursor: pointer;
+	margin-top: 1rem;
+	width: 20%;
+	padding: 10px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	background: rgba(50, 50, 50, 0.995);
+	color: #fefefe;
+}
+
+#comments{
+	font: 18px/1.5 "Signika Negative", sans-serif;
+	font-weight: 100;
+	grid-column: 2/7;
+	display:block;
+	justify-content: center;
+	margin-left: 3.5%;
+	margin-right: 3.5%;
+}
+
+#comments #comment:nth-of-type(even){
+	text-align: end;
+}
+
+#comment #name{
+	font-weight: 600;
+}
+
+#comment #message{
+	font-weight: 100;
+}
+  
+footer {
+	grid-column: 2/7;
+	position: relative;
+}
+
+p#copyright {
+	font: 10px/1.5 "Signika Negative", sans-serif;
+	font-weight: 100;
+	position: absolute;
+	width: 90%;
+	text-align: center;
+	padding-bottom: 1rem;
+}
+
+@media (max-width: 8.5in) {
+	article { grid-template-columns: 1fr 15% 5% 60% 5% 15% 1fr}
+	figure img {border-radius: 0px; }
+}

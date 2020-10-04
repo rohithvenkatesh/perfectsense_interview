@@ -43,4 +43,12 @@ $(document).ready(() => {
 			})	
 		}
 	})
+
+	$('#light').on("click", ()=>{
+		$('#theme')[0].href = 'css/light.css' 
+	})
+
+	$('#dark').on("click", ()=>{
+		$('#theme')[0].href = 'css/dark.css' 
+	})
 })
