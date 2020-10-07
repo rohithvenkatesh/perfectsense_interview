@@ -33,7 +33,7 @@ Server should be running on localhost:3000
 ## Possible Additions
 1. Add user authentication
 2. Add ability to like/reply to comments
-3. Create 'light' color mode
+3. ~~Create 'light' color mode~~
 4. Migrate from SQLite to PostgreSQL
 
 
