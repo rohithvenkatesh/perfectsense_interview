@@ -46,9 +46,13 @@ $(document).ready(() => {
 
 	$('#light').on("click", ()=>{
 		$('#theme')[0].href = 'css/light.css' 
+		$('#light').css('color', 'black')
+		$('#dark').css('color', 'rgba(100, 100, 100, 0.5)')
 	})
 
 	$('#dark').on("click", ()=>{
 		$('#theme')[0].href = 'css/dark.css' 
+		$('#light').css('color', 'rgba(255, 255, 255, 0.3)')
+		$('#dark').css('color', 'white')
 	})
 })

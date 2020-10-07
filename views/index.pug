@@ -5,6 +5,7 @@ html
 		title Rohith Venkatesh
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		link(href='https://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700&display=swap', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
 		link(rel='stylesheet', href='css/reset.css')
 		link#theme(rel='stylesheet', href='css/light.css')
 		//- link(rel="stylesheet", href="/debug.css")
@@ -12,9 +13,10 @@ html
 		script(src="scripts/index.js")
 	 
 	body
+		#themeButtons
+			button.button#light <i class="material-icons" style="font-size:43px;">wb_sunny</i>
+			button.button#dark <i class="material-icons" style="font-size:43px;">brightness_3</i>
 		article
-			button#light Light Theme
-			button#dark Dark Theme
 			br
 			h2 TECHNOLOGY
 			h1 Viverra Aliquet Eget Sit Amet Tellus Cras

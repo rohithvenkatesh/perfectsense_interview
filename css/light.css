@@ -72,6 +72,25 @@ p {
 	font-weight: 600;
 }
 
+#themeButtons {
+	position: fixed;
+	right: 20px; top: 20px;
+}
+
+#themeButtons .button {
+	border: none;
+	background: none;
+}
+
+#themeButtons #light{
+	margin-right: 5px;
+	color: black;
+}
+
+#themeButtons #dark {
+	color: rgba(100, 100, 100, 0.5);
+}
+
 #commentSection {
 	grid-column: 2/7;
 	text-align: center;
