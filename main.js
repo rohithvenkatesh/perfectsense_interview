@@ -2,58 +2,49 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 
-
-// database
-const sqlite3 = require('sqlite3')
-const db = new sqlite3.Database('comments.db')
-db.serialize(() => {
-	db.run('DROP TABLE IF EXISTS comments ')
-	db.run('CREATE TABLE comments (pk INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, comment TEXT, datetime TEXT, likes INT, likeStatus INT)')
-})
-
 // body parser
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: true})); 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+// mongoose
+const mongoose = require('mongoose');
+
+const UserComment = mongoose.model("UserComment", new mongoose.Schema({
+	name: { type: String, required: true, }, comment: { type: String, required: true, }, datetime: { type: String, required: true, },
+	likes: { type: Number, }, likeStatus: { type: Number, },
+}))
+
+//connect to mongodb atlas with mongoose
+mongoose.connect(process.env.MONGODB_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+}).then(() => {
+	console.log('MongoDB Connected…')
+}).catch(err => console.log(err))
 
 // home
 app.get('/', (req, res) => {
 	res.render('index.pug')
 })
 
-// get comments from database
-app.get('/comments', (req, res) => {
-	db.all(
-		'SELECT * FROM comments', 
-		(err, rows) => res.send(rows)
-	)
-})
-
-app.get('/comments/:pk', (req, res) => {
-	db.all(
-		'SELECT * FROM comments WHERE pk=$pk', 
-		{$pk: req.params.pk},
-		(err, rows) => {
-			if (rows.length == 0) res.send({})
-			else res.send(rows[0])
-		}
-	)
-})
-
-app.post('/comments', function (req, res) {
-	db.run(
-		'INSERT INTO comments(name, comment, datetime, likes, likeStatus) VALUES ($name, $comment, $datetime, 1, 0)', 
-		{$name: req.body.name, $comment: req.body.comment, $datetime: req.body.datetime},
-		(err)=>{
-			if (err) res.send({message: "error in new comment"})
-			else {
-				db.all(
-					'SELECT pk FROM comments ORDER BY pk DESC LIMIT 1',
-					(err, rows) => res.send({message: "successful comment insertion", pk: rows[0].pk})
-				)
-			}
-		}
-	)
+// post a comment
+app.post('/comments', async (req, res) => {
+	const comment = new UserComment({ name: req.body.name, comment: req.body.comment, datetime: req.body.datetime })
+	await comment.save()
+	res.send(comment)
 });
+
+// get all comments
+app.get('/comments', function (req, res) {
+	UserComment.find({}, function (err, comments) {
+		var commentsMap = {};
+		comments.forEach(function (comment) {
+			commentsMap[comment._id] = comment;
+		});
+		res.send(commentsMap);
+	});
+})
 
 // css + scripts
 const cssDirectory = express.static(__dirname + '/css')
