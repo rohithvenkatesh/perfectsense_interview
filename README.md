@@ -1,6 +1,12 @@
 ## A Sample Article
 > A single page article with dark mode and the ability to add comments.
 
+## What's New! :tada: 
+- **Changed from SQLite to MongoDB Atlas**
+*Allows Heroku to save the comments database*
+- **Added dark/light mode**
+*Better for your eyes!*
+
 ## Table of Contents
 - [Background](#background)
 - [Technlogies](#technologies-used)
@@ -20,8 +26,9 @@ This project was created for an interview to demonstrate my programming capabili
     * NodeJS
     * ExpressJS
 3. Other
-    * SQLite
+    * ~~SQLite~~
     * Heroku
+    - MongoDB Atlas
 
 ## Installation and Usage
 ```
@@ -34,7 +41,8 @@ Server should be running on localhost:3000
 1. Add user authentication
 2. Add ability to like/reply to comments
 3. ~~Create 'light' color mode~~
-4. Migrate from SQLite to PostgreSQL
+4. ~~Migrate from SQLite to PostgreSQL~~
+
 
 
 
